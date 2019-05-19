@@ -2,10 +2,7 @@ import org.junit.Test;
 
 import java.util.Stack;
 
-import static org.junit.Assert.*;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
-public class ExceptionStackTest  {
+public class ExceptionStackTest {
 
     @Test(expected = ExceptionStack.class)
     public void checkSize() throws ExceptionStack {

@@ -1,40 +1,36 @@
 import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 class FindMaximumSequence {
 
 
     int findMaximumSequenceStream(ArrayList<Integer> list) throws ExceptionList {
-        AtomicInteger index= new AtomicInteger();
-        AtomicInteger lengthTemp= new AtomicInteger();
-        AtomicInteger length=new AtomicInteger();
+        AtomicInteger index = new AtomicInteger();
+        AtomicInteger lengthTemp = new AtomicInteger();
+        AtomicInteger length = new AtomicInteger();
         if (list.isEmpty()) {
             throw new ExceptionList("Пустой лист");
         } else {
             list.stream().forEach(i -> {
-               if(list.get(i)< list.get(i + 1)) {
-                   lengthTemp.getAndIncrement();
-               }
-               else if(lengthTemp.get()>length.get()){
-                   index.set(i+1);
-                   lengthTemp.set(0);
-               }
-               else lengthTemp.set(0);
+                if (list.get(i) < list.get(i + 1)) {
+                    lengthTemp.getAndIncrement();
+                } else if (lengthTemp.get() > length.get()) {
+                    index.set(i + 1);
+                    lengthTemp.set(0);
+                } else lengthTemp.set(0);
             });
             return index.get();
         }
     }
 
     int recursiveFindMaximumSequence(ArrayList<Integer> list) throws ExceptionList {
-        if(!list.isEmpty()) {
+        if (!list.isEmpty()) {
             int index = 0;
             int length = 0;
             int indexTemp = 0;
             int lengthTemp = 0;
             return findMaximumSequence(list, index, length, lengthTemp, indexTemp);
-        }
-        else throw new ExceptionList("Пустой лист");
+        } else throw new ExceptionList("Пустой лист");
     }
 
 
@@ -56,7 +52,7 @@ class FindMaximumSequence {
                 length = lengthTemp;
                 indexTemp = index - lengthTemp;
             }
-                lengthTemp = 0;
+            lengthTemp = 0;
             index++;
             return findMaximumSequence(list, index, length, lengthTemp, indexTemp);
         }

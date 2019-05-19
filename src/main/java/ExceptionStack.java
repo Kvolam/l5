@@ -1,6 +1,6 @@
 class ExceptionStack extends Exception {
 
-    ExceptionStack(String text){
+    ExceptionStack(String text) {
         super(text);
     }
 }

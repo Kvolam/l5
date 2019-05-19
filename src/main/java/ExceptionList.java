@@ -1,6 +1,6 @@
 class ExceptionList extends Exception {
 
-    ExceptionList(String text){
+    ExceptionList(String text) {
         super(text);
     }
 }
